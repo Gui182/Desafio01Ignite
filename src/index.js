@@ -81,7 +81,7 @@ app.post('/todos', checksExistsUserAccount, (request, response) => {
   const todoPayload = {
     id: uuidv4(),
     title,
-    done,
+    done: false,
     deadline: new Date(deadline),
     created_at: new Date()
   }
