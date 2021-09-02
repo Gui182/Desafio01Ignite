@@ -98,9 +98,15 @@ app.put('/todos/:id', checksExistsUserAccount, checkExistsIdTodo, (request, resp
   const { userTodo } = request
 
   userTodo.title = title
-  userTodo.deadline = deadline
+  userTodo.deadline = new Date(deadline)
 
-  return response.status(201).send()
+  const respBody = {
+    title: userTodo.title,
+    deadline: new Date(userTodo.deadline),
+    done: userTodo.done
+  }
+
+   return response.status(201).json(respBody)
 
 });
 
