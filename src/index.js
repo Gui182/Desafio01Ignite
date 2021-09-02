@@ -102,7 +102,7 @@ app.put('/todos/:id', checksExistsUserAccount, checkExistsIdTodo, (request, resp
 
   const respBody = {
     title: userTodo.title,
-    deadline: new Date(userTodo.deadline),
+    deadline: userTodo.deadline,
     done: userTodo.done
   }
 
